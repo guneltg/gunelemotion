@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Большие чувства маленького человека — Гюнель Таибова</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:  #FAF6F2;
+  --blush:  #F0E4DA;
+  --blush2: #E6D4C8;
+  --rose:   #C4998A;
+  --rose2:  #A87060;
+  --deep:   #2E1F1A;
+  --mid:    #6B4A40;
+  --sage:   #8FA88A;
+  --line:   #DDD0C8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--cream);
+  color: var(--deep);
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--blush);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #E6D4C8 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #DDD0C8 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.anim { opacity: 0; animation: fadeUp 0.8s ease forwards; }
+.anim:nth-child(1) { animation-delay: 0.1s; }
+.anim:nth-child(2) { animation-delay: 0.25s; }
+.anim:nth-child(3) { animation-delay: 0.4s; }
+.anim:nth-child(4) { animation-delay: 0.55s; }
+.anim:nth-child(5) { animation-delay: 0.65s; }
+
+.label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose2);
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: clamp(34px, 8vw, 66px);
+  font-weight: 300;
+  line-height: 1.12;
+  max-width: 720px;
+  margin-bottom: 20px;
+}
+.hero-title em { font-style: italic; color: var(--rose2); }
+
+.hero-sub {
+  font-size: clamp(15px, 2.5vw, 19px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--mid);
+  max-width: 500px;
+  line-height: 1.65;
+  margin-bottom: 44px;
+}
+
+.btn {
+  display: inline-block;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 44px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-dark { background: var(--deep); color: var(--cream); }
+.btn-dark:hover { background: var(--rose2); transform: translateY(-2px); }
+.btn-rose { background: var(--rose2); color: var(--cream); }
+.btn-rose:hover { background: var(--rose); transform: translateY(-2px); }
+.btn-full { width: 100%; max-width: 360px; text-align: center; }
+
+.hero-handle {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--rose);
+  margin-top: 18px;
+}
+
+/* ── SECTIONS ── */
+section { padding: 80px 24px; }
+.container { max-width: 900px; margin: 0 auto; }
+
+.s-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose2);
+  margin-bottom: 14px;
+}
+.s-title {
+  font-size: clamp(26px, 5vw, 46px);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.s-title em { font-style: italic; color: var(--rose2); }
+.s-sub {
+  font-style: italic;
+  font-size: 17px;
+  color: var(--mid);
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 44px;
+}
+
+/* ── PAIN ── */
+.pain {
+  background: var(--deep);
+  color: var(--cream);
+  padding: 80px 24px;
+  text-align: center;
+}
+.pain .label { color: var(--rose); margin-bottom: 28px; }
+.pain-title {
+  font-size: clamp(26px, 5vw, 44px);
+  font-weight: 300;
+  line-height: 1.25;
+  max-width: 660px;
+  margin: 0 auto 44px;
+}
+.pain-title em { font-style: italic; color: var(--rose); }
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+  max-width: 880px;
+  margin: 0 auto 44px;
+}
+.pain-item {
+  background: rgba(255,255,255,0.05);
+  padding: 24px 20px;
+  text-align: left;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.pain-item p {
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #EAD8D0;
+}
+.pain-note {
+  font-size: clamp(17px, 3vw, 24px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--rose);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ── PRODUCTS ── */
+.products { background: var(--cream); }
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+@media (max-width: 640px) { .products-grid { grid-template-columns: 1fr; } }
+
+.product-card {
+  padding: 36px 28px;
+}
+.product-card.a { background: var(--blush); }
+.product-card.b { background: var(--blush2); }
+
+.product-num {
+  font-size: 64px;
+  font-weight: 300;
+  color: var(--line);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.product-name {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.product-desc {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+.product-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.product-list li {
+  font-size: 14px;
+  color: var(--deep);
+  line-height: 1.5;
+  padding-left: 14px;
+  position: relative;
+}
+.product-list li::before { content: '—'; position: absolute; left: 0; color: var(--rose); }
+
+/* ── STATS ── */
+.stats { background: var(--blush2); padding: 56px 24px; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.stat-item { background: var(--blush); padding: 28px 20px; text-align: center; }
+.stat-num {
+  font-size: clamp(38px, 7vw, 60px);
+  font-weight: 300;
+  color: var(--rose2);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label { font-style: italic; font-size: 13px; color: var(--mid); line-height: 1.4; }
+
+/* ── LECTURE ── */
+.lecture { background: var(--blush); }
+.blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2px;
+}
+.block-item { background: var(--cream); padding: 24px 20px; }
+.block-num {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--rose);
+  margin-bottom: 8px;
+}
+.block-name { font-size: 16px; font-weight: 500; margin-bottom: 6px; line-height: 1.3; }
+.block-desc { font-style: italic; font-size: 13px; color: var(--mid); line-height: 1.5; }
+
+/* ── TOPICS ── */
+.topics { background: var(--cream); }
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 2px;
+}
+.topic-item { background: var(--blush); padding: 18px 16px; }
+.topic-num {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--rose);
+  margin-bottom: 5px;
+}
+.topic-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+.topic-sub { font-style: italic; font-size: 12px; color: var(--mid); line-height: 1.4; }
+.topic-count {
+  margin-top: 7px;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--rose2);
+}
+
+/* ── WHY ── */
+.why { background: var(--blush); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+}
+.why-item { background: var(--cream); padding: 28px 22px; }
+.why-icon { font-size: 26px; margin-bottom: 12px; }
+.why-title { font-size: 17px; font-weight: 500; margin-bottom: 7px; line-height: 1.3; }
+.why-desc { font-style: italic; font-size: 13px; color: var(--mid); line-height: 1.6; }
+
+/* ── QUOTE ── */
+.quote-section { background: var(--blush2); padding: 80px 24px; text-align: center; }
+.big-quote {
+  font-size: clamp(20px, 4vw, 36px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.45;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+.quote-attr {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rose2);
+}
+
+/* ── AUTHOR ── */
+.author { background: var(--cream); }
+.author-name { font-size: clamp(24px, 4vw, 38px); font-weight: 300; margin-bottom: 5px; }
+.author-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rose2);
+  margin-bottom: 24px;
+}
+.author-bio { font-size: 16px; line-height: 1.75; color: var(--deep); margin-bottom: 14px; }
+.author-bio em { font-style: italic; color: var(--rose2); }
+.author-creds { display: flex; flex-direction: column; gap: 9px; margin-top: 20px; }
+.cred {
+  font-style: italic;
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.4;
+  padding-left: 16px;
+  position: relative;
+}
+.cred::before { content: '—'; position: absolute; left: 0; color: var(--rose); }
+
+/* ── OFFER ── */
+.offer { background: var(--deep); padding: 80px 24px; text-align: center; }
+.offer .label { color: var(--rose); margin-bottom: 20px; }
+.offer-title {
+  font-size: clamp(26px, 5vw, 48px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.2;
+  max-width: 680px;
+  margin: 0 auto 12px;
+}
+.offer-title em { font-style: italic; color: var(--rose); }
+.offer-sub {
+  font-style: italic;
+  font-size: 17px;
+  color: #C0A090;
+  max-width: 480px;
+  margin: 0 auto 44px;
+  line-height: 1.6;
+}
+.offer-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  max-width: 540px;
+  margin: 0 auto 36px;
+  padding: 36px 28px;
+}
+.offer-lines { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; text-align: left; }
+.offer-line { display: flex; align-items: flex-start; gap: 14px; font-size: 15px; color: #E8D8D0; line-height: 1.55; }
+.offer-check { color: var(--sage); font-family: 'Jost', sans-serif; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+.offer-hr { border: none; border-top: 1px solid rgba(255,255,255,0.09); margin: 24px 0; }
+.offer-price {
+  font-size: clamp(40px, 8vw, 60px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.offer-price-note {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #7A6060;
+  margin-bottom: 28px;
+}
+.offer-note {
+  font-style: italic;
+  font-size: 13px;
+  color: #7A6060;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* ── FAQ ── */
+.faq { background: var(--cream); }
+.faq-list { display: flex; flex-direction: column; gap: 2px; max-width: 680px; }
+.faq-item { background: var(--blush); }
+.faq-q {
+  padding: 18px 22px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.4;
+  user-select: none;
+  gap: 12px;
+}
+.faq-q:hover { background: var(--blush2); }
+.faq-arrow { font-size: 16px; color: var(--rose); transition: transform 0.3s; flex-shrink: 0; }
+.faq-a {
+  display: none;
+  padding: 0 22px 18px;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--mid);
+  line-height: 1.7;
+}
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+/* ── FOOTER CTA ── */
+.footer-cta { background: var(--deep); padding: 80px 24px; text-align: center; }
+.footer-cta-title {
+  font-size: clamp(24px, 5vw, 44px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.25;
+  max-width: 580px;
+  margin: 0 auto 32px;
+}
+.footer-cta-title em { font-style: italic; color: var(--rose); }
+
+footer {
+  background: var(--deep);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px;
+  text-align: center;
+}
+footer p {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #5A4040;
+  text-transform: uppercase;
+}
+
+/* ── REVEAL ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 480px) {
+  section { padding: 56px 18px; }
+  .product-card { padding: 26px 18px; }
+  .offer-box { padding: 24px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="label anim">Гюнель Таибова · психолог</p>
+  <h1 class="hero-title anim">Большие чувства<br><em>маленького человека</em></h1>
+  <p class="hero-sub anim">Лекция и сборник игр — чтобы понять, почему ребёнок так себя ведёт, и знать, что с этим делать</p>
+  <div class="anim">
+    <a href="#offer" class="btn btn-dark">Купить за 1 990 ₽</a>
+  </div>
+  <p class="hero-handle anim">@gunel.tg</p>
+</section>
+
+<!-- PAIN -->
+<div class="pain">
+  <p class="label">Это знакомо?</p>
+  <h2 class="pain-title">Вы стараетесь —<br>а ребёнок <em>всё равно</em> в слезах или крике</h2>
+  <div class="pain-grid">
+    <div class="pain-item"><p>«Почему он снова истерит из-за такой мелочи?»</p></div>
+    <div class="pain-item"><p>«Говорю "успокойся" — а становится только хуже»</p></div>
+    <div class="pain-item"><p>«Не знаю, что сказать в момент, когда он не справляется»</p></div>
+    <div class="pain-item"><p>«После каждого срыва чувствую себя виноватой»</p></div>
+  </div>
+  <p class="pain-note">Вы не плохой родитель. Вас просто никто не учил, как устроен мозг ребёнка в момент эмоции.</p>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <div class="container">
+    <p class="s-label reveal">Что вы получите</p>
+    <h2 class="s-title reveal">Лекция и сборник игр —<br><em>теория и практика вместе</em></h2>
+    <p class="s-sub reveal">Лекция объясняет, почему ребёнок так себя ведёт. Сборник даёт конкретные игры — что делать прямо сегодня вечером.</p>
+    <div class="products-grid reveal">
+      <div class="product-card a">
+        <div class="product-num">01</div>
+        <h3 class="product-name">Лекция «Большие чувства маленького человека»</h3>
+        <p class="product-desc">1,5 часа — о том, как устроены эмоции ребёнка и что реально помогает</p>
+        <ul class="product-list">
+          <li>Почему «успокойся» не работает — объясняю через биологию, просто</li>
+          <li>Что делать в момент истерики — пошагово, без паники</li>
+          <li>Как формируется саморегуляция и что её разрушает</li>
+          <li>Как создать дома эмоционально безопасную среду</li>
+          <li>6 блоков, реальные кейсы, конкретные техники</li>
+        </ul>
+      </div>
+      <div class="product-card b">
+        <div class="product-num">02</div>
+        <h3 class="product-name">Сборник «Большие игры для больших чувств»</h3>
+        <p class="product-desc">62 игры для детей от 2 до 14 лет — можно начать сегодня вечером</p>
+        <ul class="product-list">
+          <li>11 тем: злость, страх, тревога, подростки и другое</li>
+          <li>Каждая игра: возраст, цель, как играть, совет родителю</li>
+          <li>Не нужны специальные материалы или подготовка</li>
+          <li>Навигатор по возрастам — быстро найти нужное</li>
+          <li>Подходит детям от 2 до 14 лет</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal"><div class="stat-num">1,5</div><div class="stat-label">часа в лекции</div></div>
+    <div class="stat-item reveal"><div class="stat-num">62</div><div class="stat-label">игры в сборнике</div></div>
+    <div class="stat-item reveal"><div class="stat-num">11</div><div class="stat-label">тем по эмоциям</div></div>
+    <div class="stat-item reveal"><div class="stat-num">2–14</div><div class="stat-label">лет — возраст детей</div></div>
+  </div>
+</div>
+
+<!-- LECTURE BLOCKS -->
+<section class="lecture">
+  <div class="container">
+    <p class="s-label reveal">Программа лекции</p>
+    <h2 class="s-title reveal">6 блоков — от <em>«почему»</em> до <em>«что делать»</em></h2>
+    <div class="blocks-grid reveal">
+      <div class="block-item">
+        <p class="block-num">БЛОК 01</p>
+        <h4 class="block-name">Почему ребёнок не может «взять себя в руки»</h4>
+        <p class="block-desc">Как устроен мозг ребёнка и почему его реакции — это биология, а не упрямство</p>
+      </div>
+      <div class="block-item">
+        <p class="block-num">БЛОК 02</p>
+        <h4 class="block-name">Что делать в момент эмоционального взрыва</h4>
+        <p class="block-desc">Конкретный маршрут — от первой реакции до восстановления контакта с ребёнком</p>
+      </div>
+      <div class="block-item">
+        <p class="block-num">БЛОК 03</p>
+        <h4 class="block-name">Как развивается саморегуляция</h4>
+        <p class="block-desc">Что помогает ребёнку учиться справляться с чувствами, а что мешает — с примерами</p>
+      </div>
+      <div class="block-item">
+        <p class="block-num">БЛОК 04</p>
+        <h4 class="block-name">Возраст имеет значение</h4>
+        <p class="block-desc">Как меняется эмоциональный мир ребёнка от 2 до 13 лет — и что это значит для вас</p>
+      </div>
+      <div class="block-item">
+        <p class="block-num">БЛОК 05</p>
+        <h4 class="block-name">Игры и техники для дома</h4>
+        <p class="block-desc">Что работает в спокойное время — и что можно использовать прямо во время кризиса</p>
+      </div>
+      <div class="block-item">
+        <p class="block-num">БЛОК 06</p>
+        <h4 class="block-name">Эмоциональный климат в семье</h4>
+        <p class="block-desc">Как атмосфера дома влияет на нервную систему ребёнка и что можно изменить</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="topics">
+  <div class="container">
+    <p class="s-label reveal">Что есть в сборнике</p>
+    <h2 class="s-title reveal"><em>62 игры</em> — на каждую эмоцию<br>и каждый возраст</h2>
+    <div class="topics-grid reveal">
+      <div class="topic-item"><p class="topic-num">01</p><h4 class="topic-name">Как понять, что чувствуешь</h4><p class="topic-sub">Ребёнок не управляет тем, чего не замечает</p><p class="topic-count">6 игр</p></div>
+      <div class="topic-item"><p class="topic-num">02</p><h4 class="topic-name">Дышим и двигаемся</h4><p class="topic-sub">Тело успокаивается быстрее, чем мысли</p><p class="topic-count">7 игр</p></div>
+      <div class="topic-item"><p class="topic-num">03</p><h4 class="topic-name">Злость</h4><p class="topic-sub">Злиться — нормально. Бить людей — нет</p><p class="topic-count">6 игр</p></div>
+      <div class="topic-item"><p class="topic-num">04</p><h4 class="topic-name">Страх и тревога</h4><p class="topic-sub">Бояться — нормально. Один на один со страхом — нет</p><p class="topic-count">10 игр</p></div>
+      <div class="topic-item"><p class="topic-num">05</p><h4 class="topic-name">Успокоиться самому</h4><p class="topic-sub">Тренируется тогда, когда всё хорошо</p><p class="topic-count">6 игр</p></div>
+      <div class="topic-item"><p class="topic-num">06</p><h4 class="topic-name">Понимать других</h4><p class="topic-sub">Понимать себя и других — два крыла одной птицы</p><p class="topic-count">6 игр</p></div>
+      <div class="topic-item"><p class="topic-num">07</p><h4 class="topic-name">Сенсорные техники</h4><p class="topic-sub">Когда слова не помогают — помогает тело</p><p class="topic-count">4 игры</p></div>
+      <div class="topic-item"><p class="topic-num">08</p><h4 class="topic-name">Здесь и сейчас</h4><p class="topic-sub">Умение быть в моменте — защита от тревоги</p><p class="topic-count">4 игры</p></div>
+      <div class="topic-item"><p class="topic-num">09</p><h4 class="topic-name">Хорошее рядом</h4><p class="topic-sub">Устойчивость строится не только из преодоления</p><p class="topic-count">4 игры</p></div>
+      <div class="topic-item"><p class="topic-num">10</p><h4 class="topic-name">Говорить о чувствах</h4><p class="topic-sub">Дети со словами для чувств реже устраивают истерики</p><p class="topic-count">4 игры</p></div>
+      <div class="topic-item"><p class="topic-num">11</p><h4 class="topic-name">Подросткам 10–14 лет</h4><p class="topic-sub">Другой возраст — другой разговор, та же потребность в опоре</p><p class="topic-count">5 игр</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <p class="big-quote reveal">«Эмоциональная устойчивость — это навык.<br>Он развивается через игру и через вас.»</p>
+  <p class="quote-attr">Гюнель Таибова · психолог</p>
+</div>
+
+<!-- WHY -->
+<section class="why">
+  <div class="container">
+    <p class="s-label reveal">Почему это работает</p>
+    <h2 class="s-title reveal">Понять — и сразу <em>знать, что делать</em></h2>
+    <div class="why-grid reveal">
+      <div class="why-item">
+        <div class="why-icon">🧠</div>
+        <h4 class="why-title">Наука — простым языком</h4>
+        <p class="why-desc">Вы поймёте, почему ребёнок так себя ведёт. И перестанете злиться на то, что он просто не может контролировать</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🎯</div>
+        <h4 class="why-title">Конкретно, не абстрактно</h4>
+        <p class="why-desc">Не «будьте внимательнее», а точные фразы, игры и шаги — которые реально работают в обычной жизни</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📅</div>
+        <h4 class="why-title">Можно начать сегодня</h4>
+        <p class="why-desc">Каждая игра в сборнике описана так, чтобы попробовать сегодня вечером — без подготовки и дополнительных материалов</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🌱</div>
+        <h4 class="why-title">Работает на годы вперёд</h4>
+        <p class="why-desc">Сборник подходит детям от 2 до 14 лет. Лекция даёт понимание, которое не устаревает с возрастом</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="author">
+  <div class="container">
+    <p class="s-label reveal">Об авторе</p>
+    <h2 class="author-name reveal">Гюнель Таибова</h2>
+    <p class="author-title reveal">Психолог · @gunel.tg</p>
+    <p class="author-bio reveal">Я психолог, работаю с родителями — помогаю понять своих детей без осуждения и лишнего стресса. Только знания и конкретные инструменты.</p>
+    <p class="author-bio reveal">Автор книги <em>«Позитивное воспитание: без слёз и наказаний»</em> — издательство АСТ, 2025.</p>
+    <div class="author-creds reveal">
+      <span class="cred">Практикующий психолог в области детско-родительских отношений</span>
+      <span class="cred">Автор книги о позитивном воспитании, вышедшей в издательстве АСТ</span>
+      <span class="cred">Instagram @gunel.tg · Telegram tg.psychologist</span>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="offer">
+  <p class="label">Купить</p>
+  <h2 class="offer-title">Лекция и сборник игр —<br><em>всё вместе</em></h2>
+  <p class="offer-sub">Один раз — и у вас есть и теория, и практика</p>
+  <div class="offer-box">
+    <div class="offer-lines">
+      <div class="offer-line"><span class="offer-check">✓</span><span>Лекция «Большие чувства маленького человека» — 1,5 часа, 6 блоков</span></div>
+      <div class="offer-line"><span class="offer-check">✓</span><span>Сборник «Большие игры для больших чувств» — 62 игры, возраст 2–14 лет</span></div>
+      <div class="offer-line"><span class="offer-check">✓</span><span>Навигатор по возрастам и фразы для трудных ситуаций</span></div>
+      <div class="offer-line"><span class="offer-check">✓</span><span>Доступ навсегда — возвращайтесь в любой момент</span></div>
+    </div>
+    <hr class="offer-hr">
+    <div class="offer-price">1 990 ₽</div>
+    <p class="offer-price-note">Лекция + Сборник · доступ сразу после оплаты</p>
+    <a href="https://payform.ru/oaboXnc/" class="btn btn-rose btn-full">Оплатить</a>
+    <p class="offer-note">Мгновенный доступ сразу после оплаты</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <p class="s-label reveal">Вопросы</p>
+    <h2 class="s-title reveal">Часто <em>спрашивают</em></h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">Подходит ли это для детей любого возраста? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">Да. Лекция охватывает развитие эмоций от рождения до подросткового возраста. Сборник содержит игры для детей от 2 до 14 лет — для каждой игры указан возраст.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Когда я получу доступ? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">Сразу после оплаты. Лекция и сборник придут вам мгновенно.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Сборник — это PDF? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">Да, сборник в PDF-формате. Удобно читать с телефона, планшета или компьютера — и распечатать при желании.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Что если мой ребёнок уже подросток? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">В сборнике есть отдельный блок для детей 10–14 лет. В лекции тоже разбираются особенности подросткового возраста и как с ними выстраивать контакт.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Нужно ли специальное образование, чтобы разобраться? <span class="faq-arrow">↓</span></div>
+        <div class="faq-a">Нет. Всё написано и записано для обычных родителей — понятным языком, без терминов. Можно применять сразу.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <h2 class="footer-cta-title">Начните сегодня —<br>уже <em>сегодня вечером</em> будет иначе</h2>
+  <a href="https://payform.ru/oaboXnc/" class="btn btn-rose">Купить за 1 990 ₽</a>
+</div>
+
+<footer>
+  <p>Гюнель Таибова · @gunel.tg · tg.psychologist</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => obs.observe(el));
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
